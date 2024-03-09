@@ -10,7 +10,13 @@ namespace StardustOS
 
         protected override void BeforeRun()
         {
-            Console.WriteLine("Cosmos booted successfully. Type a line of text to get it echoed back.");
+            Console.Clear();
+            SDSystem.ConsoleGraphics.SelectionMenu selectionMenu = new SDSystem.ConsoleGraphics.SelectionMenu("Stardust OS - What mode do you want to boot in?", new List<SDSystem.ConsoleGraphics.SelectionMenu.SelectionElement>());
+            selectionMenu.selectionElements.Add(new SDSystem.ConsoleGraphics.SelectionMenu.SelectionElement("GUI mode (Default)"));
+            selectionMenu.selectionElements.Add(new SDSystem.ConsoleGraphics.SelectionMenu.SelectionElement("CLI mode"));
+
+            SDSystem.ConsoleGraphics.SelectionMenu.SelectionResult result = selectionMenu.RedrawWithResult();
+
         }
 
         protected override void Run()
