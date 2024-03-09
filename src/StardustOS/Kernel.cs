@@ -10,13 +10,7 @@ namespace StardustOS
 
         protected override void BeforeRun()
         {
-            Console.Clear();
-            SDSystem.ConsoleGraphics.SelectionMenu selectionMenu = new SDSystem.ConsoleGraphics.SelectionMenu("Stardust OS - What mode do you want to boot in?", new List<SDSystem.ConsoleGraphics.SelectionMenu.SelectionElement>());
-            selectionMenu.selectionElements.Add(new SDSystem.ConsoleGraphics.SelectionMenu.SelectionElement("GUI mode (Default)"));
-            selectionMenu.selectionElements.Add(new SDSystem.ConsoleGraphics.SelectionMenu.SelectionElement("CLI mode"));
-
-            SDSystem.ConsoleGraphics.SelectionMenu.SelectionResult result = selectionMenu.RedrawWithResult();
-
+            
         }
 
         protected override void Run()
