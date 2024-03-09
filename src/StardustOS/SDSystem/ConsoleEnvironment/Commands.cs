@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StardustOS.ConsoleEnvironment
+namespace StardustOS.SDSystem.ConsoleEnvironment
 {
     public static class ConsoleCommands
     {
@@ -12,7 +12,7 @@ namespace StardustOS.ConsoleEnvironment
         public static Dictionary<string, Action<string[]>> Commands = new Dictionary<string, Action<string[]>>()
         {
 
-            {"help",(args) => 
+            {"help",(args) =>
             {
 
                 Console.WriteLine($"{OsInfo.OS_NAME} V{OsInfo.OS_VERSION}\r\n-----------------------------------\r\nhelp - show this list\r\nls - list directories and files\r\ncd - navigate to a directory\r\ncat - read a file\r\ned - edit or create a file\r\nmkdir - create a file");

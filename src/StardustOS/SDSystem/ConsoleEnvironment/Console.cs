@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StardustOS.ConsoleEnvironment
+namespace StardustOS.SDSystem.ConsoleEnvironment
 {
     public static class console
     {

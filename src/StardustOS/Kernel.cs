@@ -10,15 +10,12 @@ namespace StardustOS
 
         protected override void BeforeRun()
         {
-            
+            SDSystem.ConsoleEnvironment.console.Start();
         }
 
         protected override void Run()
         {
-            Console.Write("Input: ");
-            var input = Console.ReadLine();
-            Console.Write("Text typed: ");
-            Console.WriteLine(input);
+            SDSystem.ConsoleEnvironment.console.Update();
         }
     }
 }
