@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StardustOS.SDSystem.Process
 {
-    public class process
+    public class Process
     {
 
         public int ProcessID;

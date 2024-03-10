@@ -64,26 +64,29 @@ namespace StardustOS.SDSystem.Security
 
         private static byte[] GenerateSalt()
         {
-            using (var rng = new RNGCryptoServiceProvider())
+            return new byte[0];
+            /*using (var rng = new RNGCryptoServiceProvider())
             {
                 byte[] salt = new byte[16];
                 rng.GetBytes(salt);
                 return salt;
-            }
+            }*/
         }
 
         private static byte[] HashPassword(string password, byte[] salt)
         {
-            const int iterations = 10000; // Adjust as needed
+            return new byte[0];
+            /*const int iterations = 10000; // Adjust as needed
             using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
             {
                 return pbkdf2.GetBytes(32); // 32 bytes = 256 bits
-            }
+            }*/
         }
         private static bool CompareHashes(string storedHash, byte[] userHash)
         {
+            return false;
             // Compare the byte arrays (constant-time comparison)
-            return storedHash == Convert.ToBase64String(userHash);
+            //return storedHash == Convert.ToBase64String(userHash);
         }
     }
 }
