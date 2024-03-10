@@ -17,7 +17,29 @@ namespace StardustOS.SDSystem.ConsoleEnvironment
 
                 Console.WriteLine($"{OsInfo.OS_NAME} V{OsInfo.OS_VERSION}\r\n-----------------------------------\r\nhelp - show this list\r\nls - list directories and files\r\ncd - navigate to a directory\r\ncat - read a file\r\ned - edit or create a file\r\nmkdir - create a file");
 
-            } }
+            }},
+            {"basic",(args) =>
+            {
+
+                string code = "";
+                while (true)
+                {
+
+                    string i = Console.ReadLine();
+                    if (i == ":RUN")
+                    {
+                        break;
+	                }
+                    else
+                    {
+                        code += i + "\n";
+	                }
+
+	            }
+
+                Basic.Run(code);
+
+            }},
 
         };
 
