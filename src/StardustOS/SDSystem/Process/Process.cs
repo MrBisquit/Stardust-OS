@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace StardustOS.SDSystem.Process
 {
-    public class Process
+    public class process
     {
-        public int x, y;
-        public Process process;
 
-        public event EventHandler<UpdateEventArgs> Update;
-        
-        public class UpdateEventArgs
-        {
-            public int x, y;
-            public Process process;
-        }
+        public int ProcessID;
+        public string ProcessName,ProcessDirectory;
+
+        public virtual void Update()
+        { }
+
     }
 }

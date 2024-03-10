@@ -2,6 +2,9 @@
 using Cosmos.System.Graphics;
 using Cosmos.System.Graphics.Fonts;
 using IL2CPU.API.Attribs;
+using StardustOS.SDSystem.GraphicsEnv.Applications;
+using StardustOS.SDSystem.GraphicsEnv.AppSystem;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
@@ -29,6 +32,10 @@ namespace StardustOS.SDSystem.GraphicsEnv
         static int IconsX;
         static int IconsY;
 
+        public static List<application> applications = new List<application>();
+
+        public static Rectangle Mouse = Rectangle.Empty;
+
         public static void Start(uint w,uint h)
         {
 
@@ -45,13 +52,16 @@ namespace StardustOS.SDSystem.GraphicsEnv
             }
             canvas.DrawImage(PurpleBG,0,0);
 
+            int YICNMax = (int)((78 / h) - 1);
+
             foreach (var file in Directory.GetFiles(@"0:\StarDust\Desktop"))
             {
 
                 canvas.DrawImage(FileICN, 0 + (60 * IconsX), 0 + (78 * IconsY));
+                canvas.DrawString(Path.GetExtension(file),PCScreenFont.Default,Color.Black, 9 + (60 * IconsX), 35 + (78 * IconsY));
                 canvas.DrawString(Path.GetFileNameWithoutExtension(file),PCScreenFont.Default,Color.White, 0 + (60 * IconsX), 60 + (78 * IconsY));
 
-                if (IconsY == 8)
+                if (IconsY == YICNMax)
                 {
                     IconsY = 0;
                     IconsX++;
@@ -85,7 +95,12 @@ namespace StardustOS.SDSystem.GraphicsEnv
             mouseBG = Bitmap.FromCanvasRegion(canvas, (int)MouseManager.X, (int)MouseManager.Y, 10, 15);
             LMpos.X = (int)MouseManager.X;
             LMpos.Y = (int)MouseManager.Y;
+            Mouse.Width = 10;
+            Mouse.Height = 15;
             canvas.DrawFilledRectangle(Color.White, (int)MouseManager.X, (int)MouseManager.Y, 10, 15);
+
+            //test
+            applications.Add(new Testapp());
 
             while (true)
             {
@@ -95,6 +110,14 @@ namespace StardustOS.SDSystem.GraphicsEnv
         }
         public static void Update()
         {
+
+            Mouse.X = (int)MouseManager.X;
+            Mouse.Y = (int)MouseManager.Y;
+
+            foreach (var app in applications)
+            {
+                app.Update();
+            }
 
             if (LMpos.X != MouseManager.X || LMpos.Y != MouseManager.Y)
             {
@@ -109,6 +132,11 @@ namespace StardustOS.SDSystem.GraphicsEnv
 
             canvas.Display();
 
+        }
+
+        public static void GetMouseBuffer()
+        {
+            mouseBG = Bitmap.FromCanvasRegion(canvas, (int)MouseManager.X, (int)MouseManager.Y, 10, 15);
         }
 
     }
