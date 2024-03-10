@@ -122,9 +122,9 @@ namespace StardustOS.SDSystem.GraphicsEnv
             if (LMpos.X != MouseManager.X || LMpos.Y != MouseManager.Y)
             {
 
-                canvas.DrawImage(mouseBG,LMpos.X,LMpos.Y);
-                mouseBG = Bitmap.FromCanvasRegion(canvas, (int)MouseManager.X, (int)MouseManager.Y,10,15);
-                canvas.DrawFilledRectangle(Color.White, (int)MouseManager.X, (int)MouseManager.Y, 10, 15);
+                DrawMouseBuffer();
+                GetMouseBuffer();
+                DrawMouse();
                 LMpos.X = (int)MouseManager.X;
                 LMpos.Y = (int)MouseManager.Y;
 
@@ -132,6 +132,16 @@ namespace StardustOS.SDSystem.GraphicsEnv
 
             canvas.Display();
 
+        }
+
+        public static void DrawMouseBuffer()
+        {
+            canvas.DrawImage(mouseBG, LMpos.X, LMpos.Y);
+        }
+
+        public static void DrawMouse()
+        {
+            canvas.DrawFilledRectangle(Color.White, (int)MouseManager.X, (int)MouseManager.Y, 10, 15);
         }
 
         public static void GetMouseBuffer()

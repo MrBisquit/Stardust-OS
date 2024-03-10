@@ -75,12 +75,14 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
         public void Draw()
         {
 
+            GUI.DrawMouseBuffer();
             GUI.canvas.DrawImage(WindowBGView, LastWindow.X, LastWindow.Y);
             WindowBGView = Bitmap.FromCanvasRegion(GUI.canvas, Window.X, Window.Y, (ushort)Window.Width, (ushort)Window.Height);
             GUI.canvas.DrawFilledRectangle(Color.FromArgb(20,20,20), Window.X, Window.Y, (ushort)Window.Width, 25);
             GUI.canvas.DrawString(Title,PCScreenFont.Default,Color.White, Window.X + +3, Window.Y +3);
             ViewDraw();
             GUI.GetMouseBuffer();
+            GUI.DrawMouse();
             LastWindow.Location = Window.Location;
             LastWindow.Size = Window.Size;
 
