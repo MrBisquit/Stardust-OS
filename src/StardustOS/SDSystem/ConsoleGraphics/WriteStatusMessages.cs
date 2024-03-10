@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StardustOS.SDSystem.ConsoleGraphics
 {
-    public class WriteStatusMessages
+    public static class WriteStatusMessages
     {
 
     }
