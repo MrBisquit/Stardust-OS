@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
 {
-    public class window : process
+    public class Window : Process.Process
     {
 
-        internal Rectangle Window = Rectangle.Empty;
+        internal Rectangle WindowR = Rectangle.Empty;
         internal Rectangle LastWindow;
         public string Title;
         public ControlList controls;
@@ -24,15 +24,15 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
         public Color BackgroundColor;
         internal bool IsDragging = false;
 
-        public window(Rectangle window,string title,Color BackgroundColor)
+        public Window(Rectangle window,string title,Color BackgroundColor)
         {
 
             this.BackgroundColor = BackgroundColor;
-            Window = window;
+            WindowR = window;
             LastWindow = window;
             Title = title;
-            WindowBGView = Bitmap.FromCanvasRegion(GUI.canvas, Window.X, Window.Y, (ushort)Window.Width, (ushort)Window.Height);
-            AppView = Bitmap.MakeGradient(BackgroundColor,BackgroundColor, (uint)Window.Width, (uint)Window.Height - 25);
+            WindowBGView = Bitmap.FromCanvasRegion(GUI.canvas, WindowR.X, WindowR.Y, (ushort)WindowR.Width, (ushort)WindowR.Height);
+            AppView = Bitmap.MakeGradient(BackgroundColor,BackgroundColor, (uint)WindowR.Width, (uint)WindowR.Height - 25);
             controls = new(this);
             Draw();
 
@@ -42,21 +42,21 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
         {
             base.Update();
 
-            if (Window.IntersectsWith(GUI.Mouse))
+            if (WindowR.IntersectsWith(GUI.Mouse))
             {
                 if(MouseManager.MouseState == MouseState.Left && !IsDragging)
                 {
 
-                    DraggingOffset.X = GUI.Mouse.Location.X - Window.Location.X;
-                    DraggingOffset.Y = GUI.Mouse.Location.Y - Window.Location.Y;
+                    DraggingOffset.X = GUI.Mouse.Location.X - WindowR.Location.X;
+                    DraggingOffset.Y = GUI.Mouse.Location.Y - WindowR.Location.Y;
                     IsDragging = true;
 
                 }
                 else if (MouseManager.MouseState == MouseState.Left && IsDragging)
                 {
 
-                    Window.X = GUI.Mouse.X - DraggingOffset.X;
-                    Window.Y = GUI.Mouse.Y - DraggingOffset.Y;
+                    WindowR.X = GUI.Mouse.X - DraggingOffset.X;
+                    WindowR.Y = GUI.Mouse.Y - DraggingOffset.Y;
 
                 }
                 else if (MouseManager.MouseState != MouseState.Left && IsDragging)
@@ -67,7 +67,7 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
             }
             //Window.Location = GUI.Mouse.Location;
 
-            if (LastWindow.Location != Window.Location || LastWindow.Size != Window.Size)
+            if (LastWindow.Location != WindowR.Location || LastWindow.Size != WindowR.Size)
                 if (!IsDragging) Draw();
 
         }
@@ -77,19 +77,19 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
 
             GUI.DrawMouseBuffer();
             GUI.canvas.DrawImage(WindowBGView, LastWindow.X, LastWindow.Y);
-            WindowBGView = Bitmap.FromCanvasRegion(GUI.canvas, Window.X, Window.Y, (ushort)Window.Width, (ushort)Window.Height);
-            GUI.canvas.DrawFilledRectangle(Color.FromArgb(20,20,20), Window.X, Window.Y, (ushort)Window.Width, 25);
-            GUI.canvas.DrawString(Title,PCScreenFont.Default,Color.White, Window.X + +3, Window.Y +3);
+            WindowBGView = Bitmap.FromCanvasRegion(GUI.canvas, WindowR.X, WindowR.Y, (ushort)WindowR.Width, (ushort)WindowR.Height);
+            GUI.canvas.DrawFilledRectangle(Color.FromArgb(20,20,20), WindowR.X, WindowR.Y, (ushort)WindowR.Width, 25);
+            GUI.canvas.DrawString(Title,PCScreenFont.Default,Color.White, WindowR.X + +3, WindowR.Y +3);
             ViewDraw();
             GUI.GetMouseBuffer();
             GUI.DrawMouse();
-            LastWindow.Location = Window.Location;
-            LastWindow.Size = Window.Size;
+            LastWindow.Location = WindowR.Location;
+            LastWindow.Size = WindowR.Size;
 
         }
         public void ViewDraw()
         {
-            GUI.canvas.DrawImage(AppView, Window.X, Window.Y + 25);
+            GUI.canvas.DrawImage(AppView, WindowR.X, WindowR.Y + 25);
         }
 
     }

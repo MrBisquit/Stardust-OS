@@ -19,7 +19,7 @@ namespace StardustOS.SDSystem.ConsoleEnvironment
             {
 
                 Console.WriteLine($"{OsInfo.OS_NAME} V{OsInfo.OS_VERSION}\r\n-----------------------------------\r\nhelp - show this list\r\nls - list directories and files\r\ncd - navigate to a directory\r\ncat - read a file\r\ned - edit or create a file\r\nmkdir - create a file");
-
+                Console.WriteLine("userman - Security User Manager\n    -nu <username> <password> - Creates a new user");
             }},
             {"basic",(args) =>
             {
@@ -90,7 +90,20 @@ namespace StardustOS.SDSystem.ConsoleEnvironment
                 GUI.Start(w,h);
 
             }},
+            {"userman",(args) =>
+            {
+                if(args.Length == 3)
+                {
+                    if(args[0] == "-nu")
+                    {
+                        Console.WriteLine("Creating a new user...");
 
+                        Kernel.UserManager.CreateNewUser(args[1], args[2]);
+
+                        Console.WriteLine("Created a new user...");
+                    }
+                }
+            }},
         };
 
         public static string ErrorMessage = "Inavlid command";

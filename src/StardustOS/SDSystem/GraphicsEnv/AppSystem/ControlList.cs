@@ -11,9 +11,9 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
     {
 
         internal List<Control> _controls;
-        window Window;
+        Window Window;
 
-        public ControlList(window window)
+        public ControlList(Window window)
         {
 
             Window = window;

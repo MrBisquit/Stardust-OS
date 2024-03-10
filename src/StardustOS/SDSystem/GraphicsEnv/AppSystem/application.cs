@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
 {
-    public class application : process
+    public class Application : Process.Process
     {
 
-        internal process MaiAppHandle;
+        internal Process.Process MaiAppHandle;
         public string AppName = "Application";
 
-        public application()
+        public Application()
         {
 
 
