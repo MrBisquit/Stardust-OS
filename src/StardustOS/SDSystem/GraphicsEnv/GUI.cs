@@ -46,6 +46,9 @@ namespace StardustOS.SDSystem.GraphicsEnv
             MouseManager.ScreenWidth = w;
             MouseManager.ScreenHeight = h;
 
+            MouseManager.X = 100;
+            MouseManager.Y = 100;
+
             PurpleBG = new Bitmap(PurpleBGRaw);
             FileICN = new Bitmap(FileRaw);
             FolderICN = new Bitmap(FolderRaw);
@@ -108,7 +111,6 @@ namespace StardustOS.SDSystem.GraphicsEnv
         }
         public static void Update()
         {
-
             Mouse.X = (int)MouseManager.X;
             Mouse.Y = (int)MouseManager.Y;
 

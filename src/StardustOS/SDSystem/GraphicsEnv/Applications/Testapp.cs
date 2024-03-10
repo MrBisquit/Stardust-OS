@@ -14,7 +14,7 @@ namespace StardustOS.SDSystem.GraphicsEnv.Applications
         {
 
             AppName = "TestApp";
-            MaiAppHandle = new Window(new(400, 200, 400, 400), AppName, System.Drawing.Color.White);
+            MainAppHandle = new Window(new(400, 200, 400, 400), AppName, System.Drawing.Color.White);
 
         }
 

@@ -32,16 +32,16 @@ namespace StardustOS
                 Directory.CreateDirectory(@"0:\StarDust\Desktop\testdir");
             }
 
-            //SDSystem.ConsoleEnvironment.console.Start();
+            SDSystem.ConsoleEnvironment.console.Start();
 
             uint w = 1280, h = 720; // Temp
 
-            GUI.Start(w, h);
+            //GUI.Start(w, h);
         }
 
         protected override void Run()
         {
-            //SDSystem.ConsoleEnvironment.console.Update();
+            SDSystem.ConsoleEnvironment.console.Update();
 
             GUI.Update();
         }

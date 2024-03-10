@@ -24,7 +24,7 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
         public Color BackgroundColor;
         internal bool IsDragging = false;
 
-        public Window(Rectangle window,string title,Color BackgroundColor)
+        public Window(Rectangle window, string title, Color BackgroundColor)
         {
 
             this.BackgroundColor = BackgroundColor;
