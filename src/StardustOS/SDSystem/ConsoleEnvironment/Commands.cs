@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lynox.Additions.LUA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,8 +37,30 @@ namespace StardustOS.SDSystem.ConsoleEnvironment
 	                }
 
 	            }
-
+                
                 Basic.Run(code);
+
+            }},
+            {"lua",(args) =>
+            {
+
+                string code = "";
+                while (true)
+                {
+
+                    string i = Console.ReadLine();
+                    if (i == ":RUN")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        code += i + "\n";
+                    }
+
+                }
+
+                LUA.Run(code);
 
             }},
 
