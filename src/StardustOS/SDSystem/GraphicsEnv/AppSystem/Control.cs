@@ -8,5 +8,14 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
 {
     public class Control
     {
+
+        public Control() 
+        { }
+
+        public virtual void Update()
+        { }
+        public virtual void Draw()
+        { }
+
     }
 }
