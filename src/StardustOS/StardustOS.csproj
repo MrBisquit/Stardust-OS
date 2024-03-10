@@ -40,4 +40,8 @@
         <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="SDSystem\GraphicsEnv\SystemGUI\" />
+    </ItemGroup>
+
 </Project>

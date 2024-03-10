@@ -100,13 +100,8 @@ namespace StardustOS.SDSystem.GraphicsEnv
             canvas.DrawFilledRectangle(Color.White, (int)MouseManager.X, (int)MouseManager.Y, 10, 15);
 
             //test
-            applications.Add(new Testapp());
-
-            while (true)
-            {
-                Update();
-            }
-
+            //applications.Add(new Testapp());
+            applications.Add(new UsermanGUI());
         }
         public static void Update()
         {

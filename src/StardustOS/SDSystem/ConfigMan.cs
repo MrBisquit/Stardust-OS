@@ -8,6 +8,6 @@ namespace StardustOS.SDSystem
 {
     public static class ConfigMan
     {
-
+        public static Dictionary<string, string> Configs = new Dictionary<string, string>();
     }
 }
