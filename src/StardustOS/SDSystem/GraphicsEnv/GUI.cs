@@ -1,4 +1,5 @@
-﻿using Cosmos.System;
+﻿using Cosmos.Core.Memory;
+using Cosmos.System;
 using Cosmos.System.Graphics;
 using Cosmos.System.Graphics.Fonts;
 using IL2CPU.API.Attribs;
@@ -35,6 +36,8 @@ namespace StardustOS.SDSystem.GraphicsEnv
         public static List<application> applications = new List<application>();
 
         public static Rectangle Mouse = Rectangle.Empty;
+
+        static int HeapTime = 0;
 
         public static void Start(uint w,uint h)
         {
@@ -132,6 +135,15 @@ namespace StardustOS.SDSystem.GraphicsEnv
 
             canvas.Display();
 
+            if (HeapTime == 20)
+            {
+                Heap.Collect();
+                HeapTime=0;
+            }
+            else
+            {
+                HeapTime++;
+            }
         }
 
         public static void DrawMouseBuffer()
