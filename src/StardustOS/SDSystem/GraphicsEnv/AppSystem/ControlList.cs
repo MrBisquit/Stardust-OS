@@ -37,8 +37,20 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
 
         public void Add(Control control)
         {
+            control.ParentWindow = Window;
             _controls.Add(control);
+            control.Start();
             Window.ViewDraw();
+        }
+
+        public void UpdateControls()
+        {
+
+            foreach (var control in _controls)
+            {
+                control.Update();
+            }
+
         }
 
     }

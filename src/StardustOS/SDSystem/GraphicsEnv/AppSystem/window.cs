@@ -66,6 +66,7 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
 
             }
             //Window.Location = GUI.Mouse.Location;
+            controls.UpdateControls();
 
             if (LastWindow.Location != WindowR.Location || LastWindow.Size != WindowR.Size)
                 if (!IsDragging) Draw();

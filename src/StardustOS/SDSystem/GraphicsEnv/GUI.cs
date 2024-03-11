@@ -105,6 +105,8 @@ namespace StardustOS.SDSystem.GraphicsEnv
             Mouse.Height = 15;
             canvas.DrawFilledRectangle(Color.White, (int)MouseManager.X, (int)MouseManager.Y, 10, 15);
 
+            Kernel.GuiMode = true;
+
             //test
             //applications.Add(new Testapp());
             applications.Add(new UsermanGUI());

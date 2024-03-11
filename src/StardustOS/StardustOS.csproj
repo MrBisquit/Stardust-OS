@@ -22,6 +22,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="SDSystem\GraphicsEnv\SystemGUI\**" />
+      <EmbeddedResource Remove="SDSystem\GraphicsEnv\SystemGUI\**" />
+      <None Remove="SDSystem\GraphicsEnv\SystemGUI\**" />
+    </ItemGroup>
+
+    <ItemGroup>
       <None Remove="SDSystem\Resources\file.bmp" />
       <None Remove="SDSystem\Resources\folder.bmp" />
       <None Remove="SDSystem\Resources\purple.bmp" />
@@ -39,10 +45,6 @@
         <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604" />
         <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604" />
         <PackageReference Include="CosmosTTF" Version="4.0.1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="SDSystem\GraphicsEnv\SystemGUI\" />
     </ItemGroup>
 
 </Project>

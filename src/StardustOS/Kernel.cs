@@ -14,6 +14,8 @@ namespace StardustOS
 
         public static UserManager UserManager;
 
+        public static bool GuiMode = false;
+
         protected override void BeforeRun()
         {
             fs = new Sys.FileSystem.CosmosVFS();
@@ -41,9 +43,16 @@ namespace StardustOS
 
         protected override void Run()
         {
-            SDSystem.ConsoleEnvironment.console.Update();
 
-            GUI.Update();
+            if (!GuiMode)
+            {
+                SDSystem.ConsoleEnvironment.console.Update();
+            }
+            else
+            {
+                GUI.Update();
+            }
+
         }
     }
 }

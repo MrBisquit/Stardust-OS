@@ -9,8 +9,19 @@ namespace StardustOS.SDSystem.GraphicsEnv.AppSystem
     public class Control
     {
 
+        public Window ParentWindow;
+
         public Control() 
-        { }
+        {
+
+        }
+
+        public virtual void Start()
+        {
+
+            Draw();
+
+        }
 
         public virtual void Update()
         { }
